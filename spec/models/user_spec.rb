@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  email           :string(255)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  admin           :boolean          default(TRUE)
+#  password_digest :string(255)
+#
+
 require 'spec_helper'
 
 describe User do
@@ -59,17 +72,28 @@ describe User do
   before { @user.save }
   let(:found_user) { User.find_by_email(@user.email) }
 
-  describe "with valid password" do
+    describe "with valid password" do
     it { should == found_user.authenticate(@user.password) }
-  end
+    end
 
-  describe "with invalid password" do
+    describe "with invalid password" do
     let(:user_for_invalid_password) { found_user.authenticate("bullshit") }
 
     it { should_not == user_for_invalid_password }
-    specify { user_for_invalid_password.should be_false }
+    specify { user_for_invalid_password.should be_false }    
+    end
+    
   end
+
+  describe "email address with mixed case" do
+    let(:mixed_case_email) { "Foo@ExAMPle.CoM" }
+
+    it "should be saved as all lower-case" do
+      @user.email = mixed_case_email
+      @user.save
+      @user.reload.email.should == mixed_case_email.downcase
+    end
   end
-  
+
 end
 
