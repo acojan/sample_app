@@ -11,7 +11,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:success] = "Sign Up succesfull. Welcome to the CeFam Online Database!"	
+      sign_in @user
+      flash[:success] = "Account creation succesful. Welcome to the CeFam Online Database"	
       redirect_to @user
     else
       render 'new'

@@ -4,14 +4,16 @@
 <div class="center hero-unit">
   <h1>The Center for Family Ministries Online Database Application</h1>
 
-  <h2>
-    Welcome! This is the homepage for the application.
-  </h2>
-  <p>
-  	Please login with your account to proceed.
-  </p>
+  <h2>Welcome! This is the homepage for the application.</h2>
 
-  <%= link_to "Sign in!", '#', class: "btn btn-large btn-primary" %>
+  <%if !signed_in?%>
+  <p>Please login with your account to proceed.</p>
+  <%= link_to "Sign in!", signin_path, class: "btn btn-large btn-primary" %>
+
+  <%else%>
+  <p> Hello <%=current_user.name%>. You are already signed in.</p>
+
+  <%end%>
 </div>
 
 <%= link_to image_tag("rails.png", align: "right", alt: "Rails"), 'http://rubyonrails.org/' %> <br>

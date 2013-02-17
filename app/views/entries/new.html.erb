@@ -1,0 +1,14 @@
+<h1> Creating new entry </h1>
+<%= form_for @person do |f| %>
+
+Name: <%= f.text_field :name %>
+Street: <%= f.text_field :street %>
+City: <%= f.text_field :city %>
+Province: <%= f.text_field :province %>
+E-Mail: <%= f.text_field :email %>
+Landline: <%= f.text_field :landline %>
+Mobile#: <%= f.text_field :mobile %>
+
+<%= f.submit %>
+
+<%end%>

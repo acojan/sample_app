@@ -1,0 +1,6 @@
+Creating a model:
+
+_____________
+Models:
+
+cmd: $rails generate model Post title:string content:text 

@@ -4,7 +4,7 @@ describe "UserPages" do
 subject {page}
 
    describe "create user page" do
-     before {visit createUser_path}
+     before {visit newUser_path}
 
     	it {should have_selector('h1', text: 'Creating New User')}
     	it {should have_selector('title', text: 'Sign Up')}
@@ -13,9 +13,8 @@ subject {page}
    describe "show profile page" do
    	 let(:user){FactoryGirl.create(:user)}
      before {visit user_path(user)}
-
-    	it{should have_selector('h1', text: user.name)}
-    	it{should have_selector('title', text: user.name)}
+    	it{should have_selector('h2', text: user.name)}
+    	it{should have_selector('title', text: user.name)}    
     end 
 
     describe "signup" do
@@ -36,12 +35,18 @@ subject {page}
         fill_in "Password",     with: "foobar"
         choose("user_admin_true")
         fill_in "Confirmation", with: "foobar"
-        
-      end
+    end
 
-      it "should create a user" do
+    it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
       end
+
+      describe "should create a user" do
+        before {click_button submit}
+        it {should have_link('Sign out')}
+      end
+
     end
   end
+
 end
