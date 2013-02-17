@@ -13,4 +13,4 @@ class CreatePeople < ActiveRecord::Migration
 
     end
   end
-end
+en
