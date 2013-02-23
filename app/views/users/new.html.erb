@@ -3,7 +3,7 @@
 <h1>Creating New User</h1>
 
 <div class="row">
-  <div class="span6 offset3">
+  <div class="span4 offset4">
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
       
@@ -17,7 +17,6 @@
       
       <%= f.radio_button :admin, "true"%> Yes <br>
       <%= f.radio_button :admin, "false"%> No<br><br>
-    
 
       <%= f.label :password %>
       <%= f.password_field :password %>

@@ -1,4 +1,7 @@
 <h1> Creating new entry </h1>
+
+<div class="row">
+<div class="span6 offset3">
 <%= form_for @person do |f| %>
 
 Name: <%= f.text_field :name %>
@@ -12,3 +15,6 @@ Mobile#: <%= f.text_field :mobile %>
 <%= f.submit %>
 
 <%end%>
+</div>
+</div>
+`

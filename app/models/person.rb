@@ -15,5 +15,5 @@
 #
 
 class Person < ActiveRecord::Base
-   attr_accessible :name, :street, :city, :province, :email, :landline, :moblie
+   attr_accessible :name, :street, :city, :province, :email, :landline, :mobile
 end

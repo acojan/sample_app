@@ -8,7 +8,10 @@
               <li><%= link_to "Home", root_path %></li>
               <li><%= link_to "Help", help_path %></li>
 
+              <!--Visibile only when signed in-->
               <% if signed_in? %>
+
+              <li><%= link_to "List users", users_path %></li>
               <li><%= link_to "Search", '#' %></li>
               <li><%= link_to "Add Entry", '#' %></li>
                      
@@ -18,7 +21,7 @@
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to "Profile", current_user %></li>
-                <li><%= link_to "Settings", '#' %></li>
+                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                 <li class="divider"></li>
                 <li><%= link_to "Sign out", signout_path, method: "delete" %>
                 </li>

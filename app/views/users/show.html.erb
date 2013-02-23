@@ -1,6 +1,6 @@
-<title><%= @user.name %></title>
+<% provide(:title,@user.name) %>
 <h1> User Profile </h1>
-<h2><%= @user.name %><br>
+<h2><%=@user.name%><br>
 <%= @user.email %><br>
 Administrator: <%= @user.admin%>
 </h2>
