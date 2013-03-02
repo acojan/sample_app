@@ -41,6 +41,6 @@
 
 require 'spec_helper'
 
-describe Person do
+describe Organization do
   pending "add some examples to (or delete) #{__FILE__}"
 end

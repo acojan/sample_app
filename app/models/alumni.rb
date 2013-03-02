@@ -39,8 +39,6 @@
 #  isCounselor               :boolean          default(FALSE)
 #
 
-require 'spec_helper'
-
-describe Person do
-  pending "add some examples to (or delete) #{__FILE__}"
+class Alumni < Person
+  # attr_accessible :title, :body
 end

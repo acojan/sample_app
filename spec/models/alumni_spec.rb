@@ -41,6 +41,6 @@
 
 require 'spec_helper'
 
-describe Person do
+describe Alumni do
   pending "add some examples to (or delete) #{__FILE__}"
 end

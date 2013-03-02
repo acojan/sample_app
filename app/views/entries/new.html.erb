@@ -11,6 +11,7 @@ Province: <%= f.text_field :province %>
 E-Mail: <%= f.text_field :email %>
 Landline: <%= f.text_field :landline %>
 Mobile#: <%= f.text_field :mobile %>
+Entry Type: <%= f.select :type,[['Client: Individual','Individual'], ['Client: Organization','Organization'],['Client: Counselee','Counselee'], ['Staff: Regular','Staff'],['Staff: Counselor','Counselor'], ['Student'],['Alumni']]%>
 
 <%= f.submit %>
 

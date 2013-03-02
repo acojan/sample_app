@@ -2,18 +2,68 @@
 #
 # Table name: people
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  street     :string(255)
-#  city       :string(255)
-#  province   :string(255)
-#  email      :string(255)
-#  landline   :string(255)
-#  mobile     :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                        :integer          not null, primary key
+#  created_at                :datetime         not null
+#  updated_at                :datetime         not null
+#  name                      :string(255)
+#  street                    :string(255)
+#  city                      :string(255)
+#  province                  :string(255)
+#  email                     :string(255)
+#  landline                  :string(255)
+#  mobile                    :string(255)
+#  type                      :string(255)
+#  affiliation               :string(255)
+#  birthday                  :datetime
+#  sex                       :string(255)
+#  occupation                :string(255)
+#  education                 :string(255)
+#  religion                  :string(255)
+#  problems                  :string(255)
+#  previousCounseling_name   :string(255)
+#  previousCounseling_when   :datetime
+#  previousCounseling_where  :string(255)
+#  previousCounseling_result :string(255)
+#  last_checkup_date         :datetime
+#  marriage_date             :datetime
+#  marriage_status           :string(255)
+#  contact_person            :string(255)
+#  org_nature                :string(255)
+#  officials_name            :string(255)
+#  officials_designation     :string(255)
+#  otherSkills               :string(255)
+#  cSpouse_name              :string(255)
+#  cSpouse_religion          :string(255)
+#  cSpouse_workaffil         :string(255)
+#  isCounselee               :boolean          default(FALSE)
+#  isCounselor               :boolean          default(FALSE)
 #
 
 class Person < ActiveRecord::Base
-   attr_accessible :name, :street, :city, :province, :email, :landline, :mobile
+  # attr_accessible :title, :body
 end
+
+class Student < Person 
+end
+
+class Individual < Person 
+end
+
+class Organization < Person 
+end
+
+class Alumni < Person 
+end
+
+class Staff < Person 
+end
+
+
+
+#['Client: Individual', 1]
+#['Client: Organization', 2]
+#['Client: Counselee', 3]
+#['Staff: Regular', 4]
+#['Staff: Counselor', 2]
+#['Student',6]
+#['Alumni',7]
