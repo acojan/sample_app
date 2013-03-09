@@ -32,15 +32,14 @@
 #  officials_name            :string(255)
 #  officials_designation     :string(255)
 #  otherSkills               :string(255)
-#  cSpouse_name              :string(255)
-#  cSpouse_religion          :string(255)
-#  cSpouse_workaffil         :string(255)
 #  isCounselee               :boolean          default(FALSE)
 #  isCounselor               :boolean          default(FALSE)
+#  age                       :integer
 #
 
 class Person < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :type
+  attr_protected
 end
 
 class Student < Person 
@@ -52,18 +51,16 @@ end
 class Organization < Person 
 end
 
+class Counselee < Person 
+end
+
 class Alumni < Person 
 end
 
 class Staff < Person 
 end
 
+class Counselor < Person 
+end
 
 
-#['Client: Individual', 1]
-#['Client: Organization', 2]
-#['Client: Counselee', 3]
-#['Staff: Regular', 4]
-#['Staff: Counselor', 2]
-#['Student',6]
-#['Alumni',7]

@@ -32,13 +32,19 @@
 #  officials_name            :string(255)
 #  officials_designation     :string(255)
 #  otherSkills               :string(255)
-#  cSpouse_name              :string(255)
-#  cSpouse_religion          :string(255)
-#  cSpouse_workaffil         :string(255)
 #  isCounselee               :boolean          default(FALSE)
 #  isCounselor               :boolean          default(FALSE)
+#  age                       :integer
 #
 
 class Counselee < Person
-  # attr_accessible :title, :body
+	has_many :spouses, :dependent => :destroy
+	has_many :others, :dependent => :destroy
+	has_many :counseling_sessions, :dependent => :destroy
+	has_many :medications, :dependent => :destroy
+
+	accepts_nested_attributes_for :spouses, :others, :counseling_sessions, :medications, :reject_if => lambda {|a| a[:content].blank?}, :allow_destroy => true
+    attr_accessible :other, :spouse, :other, :counseling_session, :medication
+    
 end
+

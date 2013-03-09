@@ -2,13 +2,14 @@ SampleApp::Application.routes.draw do
  resources :users
  resources :people
  resources :entries
- resources :alumni
- resources :counselees
+ resources :alumnis
  resources :counselors
+ resources :counselees 
  resources :individuals
  resources :organizations
  resources :students
- resources :staff
+ resources :staffs
+ resources :others
  resources :sessions, only: [:new, :create, :destroy]
 
   match '/signin',  to: 'sessions#new' 
@@ -18,7 +19,9 @@ SampleApp::Application.routes.draw do
   match "/help", to: 'static_pages#help'
   match "/about", to: 'static_pages#about'
   match "/contact", to: 'static_pages#contact'
-
+  
+  match "/people/new/:type", to: 'people#new'
+  match "/counselee/more/:id", to: 'counselees#more'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

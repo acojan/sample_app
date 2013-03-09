@@ -12,6 +12,11 @@ $grayMediumLight: #eaeaea;
 
 /* universal */
 
+.fields{
+padding: 15px ;
+outline:#C0C0C0 solid thin;
+}
+
 html {
   overflow-y: scroll;
 }
@@ -36,6 +41,10 @@ textarea {
   margin-bottom: 10px;
 }
 
+#datestuff {
+  float: left;
+  width: 150px;
+}
 
 /* typography */
 
@@ -119,17 +128,18 @@ footer ul li {
 /* forms */
 
 input, textarea, select, .uneditable-input {
+
   border: 1px solid #bbb;
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
   @include box_sizing;
+
 }
 
 input {
   height: auto !important;
 }
-
 #error_explanation {
   color: #f00;
   ul {
@@ -158,6 +168,8 @@ input {
   }
 }
 
+
+
 /* miscellaneous */
 
 .debug_dump {
@@ -167,3 +179,4 @@ input {
   margin-top: 45px;
   @include box_sizing;
 }
+

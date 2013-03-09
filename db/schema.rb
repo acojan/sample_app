@@ -11,11 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130224035826) do
+ActiveRecord::Schema.define(:version => 20130307101912) do
 
   create_table "alumnis", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "availabilities", :force => true do |t|
+    t.string   "day"
+    t.datetime "startTime"
+    t.datetime "endTime"
+    t.string   "location"
+    t.string   "counselor_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "children", :force => true do |t|
+    t.string   "name"
+    t.integer  "age"
+    t.string   "counselor_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "clients", :force => true do |t|
@@ -23,9 +41,39 @@ ActiveRecord::Schema.define(:version => 20130224035826) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "clusters", :force => true do |t|
+    t.string   "clusterId"
+    t.string   "clusterName"
+    t.string   "clusterInvolvement"
+    t.string   "possibleInvolvement"
+    t.string   "counselor_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
   create_table "counselees", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "counseling_experiences", :force => true do |t|
+    t.string   "courseName"
+    t.string   "conductedBy"
+    t.string   "counselor_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "counseling_sessions", :force => true do |t|
+    t.datetime "startTime"
+    t.datetime "endTime"
+    t.string   "location"
+    t.string   "counselorName"
+    t.string   "counseleeName"
+    t.string   "counselor_id"
+    t.string   "counselee_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "counselors", :force => true do |t|
@@ -33,14 +81,41 @@ ActiveRecord::Schema.define(:version => 20130224035826) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "growth_groups", :force => true do |t|
+    t.string   "groupId"
+    t.string   "facilitator"
+    t.integer  "year"
+    t.string   "student_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "individuals", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
+  create_table "medications", :force => true do |t|
+    t.string   "medicationName"
+    t.string   "dosage"
+    t.string   "counselee_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
   create_table "organizations", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "others", :force => true do |t|
+    t.string   "name"
+    t.integer  "age"
+    t.string   "occupation"
+    t.string   "relation"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "counselee_id"
   end
 
   create_table "people", :force => true do |t|
@@ -73,11 +148,45 @@ ActiveRecord::Schema.define(:version => 20130224035826) do
     t.string   "officials_name"
     t.string   "officials_designation"
     t.string   "otherSkills"
-    t.string   "cSpouse_name"
-    t.string   "cSpouse_religion"
-    t.string   "cSpouse_workaffil"
     t.boolean  "isCounselee",               :default => false
     t.boolean  "isCounselor",               :default => false
+    t.integer  "age"
+  end
+
+  create_table "programs", :force => true do |t|
+    t.string   "programId"
+    t.string   "programName"
+    t.integer  "startYear"
+    t.integer  "endYear"
+    t.string   "student_id"
+    t.string   "alumni_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "services", :force => true do |t|
+    t.string   "serviceId"
+    t.string   "serviceName"
+    t.string   "serviceNature"
+    t.integer  "hours"
+    t.integer  "year"
+    t.string   "staff_id"
+    t.string   "client_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "spouses", :force => true do |t|
+    t.string   "name"
+    t.integer  "age"
+    t.string   "education"
+    t.string   "religion"
+    t.string   "email"
+    t.string   "landline"
+    t.string   "mobile"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "counselee_id"
   end
 
   create_table "staffs", :force => true do |t|
@@ -88,6 +197,15 @@ ActiveRecord::Schema.define(:version => 20130224035826) do
   create_table "students", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "subject_infos", :force => true do |t|
+    t.string   "subjectId"
+    t.string   "subjectName"
+    t.string   "grade"
+    t.string   "student_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -103,5 +221,13 @@ ActiveRecord::Schema.define(:version => 20130224035826) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+
+  create_table "work_experiences", :force => true do |t|
+    t.string   "previousWork"
+    t.string   "positionHeld"
+    t.string   "counselor_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
 end

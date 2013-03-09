@@ -1,0 +1,48 @@
+<%= f.hidden_field :isCounselee, value: true%>
+
+<%= f.label :occupation %>
+<%= f.text_field :occupation %>
+
+<%= f.label :education %>
+<%= f.text_field :education %>
+
+<%= f.label :religion %>
+<%= f.text_field :religion %>
+
+<%= f.label :problems %>
+<%= f.text_field :problems %>
+
+<%= f.label :previousCounseling_name %>
+<%= f.text_field :previousCounseling_name %>
+
+<%= f.label :previousCounseling_when %>
+<%= f.date_select :previousCounseling_when %>
+
+<%= f.label :previousCounseling_where %>
+<%= f.text_field :previousCounseling_where %>
+
+<%= f.label :previousCounseling_result %>
+<%= f.text_field :previousCounseling_result %>
+
+<%= f.label :last_checkup_date %>
+<%= f.date_select :last_checkup_date %>
+
+<%= f.label :marriage_date %>
+<%= f.date_select :marriage_date %>
+
+<%= f.label :marriage_status %>
+<%= f.text_field :marriage_status %>
+<hr>
+
+<h3> Others who live at home </h3>
+<p><%= link_to_add_fields "Add more entries", f, :others %></p>
+<%= f.fields_for :others do |builder| %>
+	<%= render 'other_fields', :f => builder %><br>
+<%end%>
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+	
+	<%= f.label :affiliation %>
+	<%= f.text_field :affiliation %>
+
+	<div class="form-inline">
+	<%= f.label :sex %> &nbsp &nbsp
+	
+      <%= f.radio_button :sex, "m"%> Male &nbsp
+      <%= f.radio_button :sex, "f"%> Female<br>
+  	</div>
+
+ 	<div style="width:80px">
+	<%= f.label :birthday %>
+	<%= f.date_select(:birthday,start_year: 1940, :order => [:month, :day, :year]) %>
+	</div>
+	
+

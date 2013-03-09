@@ -1,8 +1,4 @@
-class StudentsController < ApplicationController
-
-def new
-  	@student = Student.new
-  end
+class StudentsController < PeopleController
 
   def create
     @student = Student.new(params[:student])

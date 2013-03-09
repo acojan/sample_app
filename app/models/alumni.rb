@@ -32,11 +32,9 @@
 #  officials_name            :string(255)
 #  officials_designation     :string(255)
 #  otherSkills               :string(255)
-#  cSpouse_name              :string(255)
-#  cSpouse_religion          :string(255)
-#  cSpouse_workaffil         :string(255)
 #  isCounselee               :boolean          default(FALSE)
 #  isCounselor               :boolean          default(FALSE)
+#  age                       :integer
 #
 
 class Alumni < Person
