@@ -34,14 +34,29 @@
 <%= f.text_field :marriage_status %>
 <hr>
 
+<div class='span4'>
+<h3> Spouse </h3>
+<%= f.fields_for :spouses do |builder| %>
+	<%= render 'spouse_fields', :f => builder %><br>
+<%end%>
+<p><%= link_to_add_fields "Add entry", f, :spouses %></p>
+</div>
+
+<div class='span4'>
 <h3> Others who live at home </h3>
-<p><%= link_to_add_fields "Add more entries", f, :others %></p>
 <%= f.fields_for :others do |builder| %>
 	<%= render 'other_fields', :f => builder %><br>
 <%end%>
+<p><%= link_to_add_fields "Add entry", f, :others %></p>
+</div>
 
-
-
+<div class='span3'>
+<h3> Medication </h3>
+<%= f.fields_for :medications do |builder| %>
+	<%= render 'medication_fields', :f => builder %><br>
+<%end%>
+<p><%= link_to_add_fields "Add entry", f, :medications %></p>
+</div>
 
 
 

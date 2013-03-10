@@ -1,0 +1,7 @@
+
+<b>Total Number of Counselees <%= Counselee.all.count %><br><br></b>
+<% for x in Counselee.all%>
+Name <%= x.name%><br>
+Other's Name: <%= x.others.name%><br>
+<hr>
+<%end%>

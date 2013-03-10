@@ -1,38 +1,42 @@
-<h1> Creating new <%=@type%> </h1>
+<h3> Creating new <%=@type%> </h3>
 
-<div class="row">
-<div class="span6 offset3">
+<div class="row"><div class="span9"><div class="well">
  <%= form_for(@person) do |f| %>
-      
+
       <%= f.label :name %>
       <%= f.text_field :name %>
 
-      <%= f.label :street %>
-      <%= f.text_field :street %>
+      <div class="row">
+      <div class="span4"><%= f.label :street %><%= f.text_field :street %></div>
+      <div class="span2"><%= f.label :city %><%= f.text_field :city %></div>
+      <div class="span2"><%= f.label :province %><%= f.text_field :province %></div>
+      </div>
 
-      <%= f.label :city %>
-      <%= f.text_field :city %>
+      <h4> Contact Information </h4>
+      <div class="row">
+      <div class="span3"><%= f.label :email %><%= f.text_field :email %></div>
+      <div class="span2"><%= f.label :landline %><%= f.text_field :landline %></div>
+      <div class="span3"><%= f.label :mobile %><%= f.text_field :mobile %></div>
+      </div>
 
- 	    <%= f.label :province %>
-      <%= f.text_field :province %>
+</div></div></div>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-      
-      <%= f.label :landline %>
-      <%= f.text_field :landline %>
+      <hr>
 
-      <%= f.label :mobile %>
-      <%= f.text_field :mobile %>
+<div class="row"><div class="span12">
 
-      <hr> 
     	 <%= render :partial => "layouts/individual", :locals => { :f => f }    if @type=='Individual' or @type=='Alumni' %>
        <%= render :partial => "layouts/org", :locals => { :f => f }           if @type=='Organization' %>
        <%= render :partial => "layouts/student", :locals => { :f => f }       if @type=='Student' or @type=='Staff' %>
        <%= render :partial => "layouts/counselee", :locals => { :f => f }     if @type=='Counselee' %>
        <%= render :partial => "layouts/counselor", :locals => { :f => f }     if @type=='Counselor' %>
 
-      <%= f.submit "Confirm", class: "btn btn-large btn-primary" %>
+       <div class="row">
+       <div class="span offset8"><%= f.submit "Confirm", class: "btn btn-large btn-primary" %></div>
+       </div>
     <% end %>
- </div></div>
+
+</div></div>
+
+
 

@@ -1,0 +1,12 @@
+<div class="fields">
+<b>Medication</b> 
+
+<div class="row">
+	<div class="span2"><%= f.label 'Name' %><%= f.text_field :medicationName %></div>
+</div>
+
+<div class='row'>
+	<div class="span1"><%= f.label :dosage %><%= f.text_field :dosage %></div>
+</div>
+<p><%= link_to_remove_fields "remove", f %> </p>
+</div>

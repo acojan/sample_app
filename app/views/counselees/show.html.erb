@@ -1,6 +1,4 @@
-
-
-<% for x in Counselee.all%>
-<%=x.name + x.count%>
-Number of Others <%= x.others.count%>
-<%end%>
+<% for attribute in @counselee.attributes.keys %>
+  <% x=@counselee.attributes[attribute]%>
+  <p><%= attribute.humanize if x!=nil%> <%= x.to_s if x!=nil %></p>
+<% end %>

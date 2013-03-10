@@ -1,12 +1,14 @@
+<div class = "row"><div class = "span8 offset2">
 
-	<%= f.label :contact_person %>
-	<%= f.text_field :contact_person %>
+	<div class="row">
+	<div class="span4"><%= f.label :contact_person %><%= f.text_field :contact_person %></div>
+	<div class="span4"><%= f.label 'Nature of Organization' %><%= f.text_field :org_nature %></div>
+	</div>
 
-	<%= f.label 'Nature of Organization' %>
-	<%= f.text_field :org_nature %>
+	<div class="row">
+	<div class="span4"><%= f.label :officials_name %><%= f.text_field :officials_name %></div>
+	<div class="span4"><%= f.label :officials_designation %><%= f.text_field :officials_designation %></div>
+	</div>
 
-	<%= f.label :officials_name %>
-	<%= f.text_field :officials_name %>
-
-	<%= f.label :officials_designation %>
-	<%= f.text_field :officials_designation %>
+</div>
+</div>

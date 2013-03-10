@@ -40,11 +40,17 @@
 class Counselee < Person
 	has_many :spouses, :dependent => :destroy
 	has_many :others, :dependent => :destroy
-	has_many :counseling_sessions, :dependent => :destroy
 	has_many :medications, :dependent => :destroy
+	
+	has_many :counseling_sessions, :dependent => :destroy
+	has_many :counselors, :through => :counseling_sessions
 
-	accepts_nested_attributes_for :spouses, :others, :counseling_sessions, :medications, :reject_if => lambda {|a| a[:content].blank?}, :allow_destroy => true
-    attr_accessible :other, :spouse, :other, :counseling_session, :medication
-    
+	accepts_nested_attributes_for :spouses, :allow_destroy => true, :reject_if => proc { |attributes| attributes['name'].blank? }
+	accepts_nested_attributes_for :others, :allow_destroy => true, :reject_if => proc { |attributes| attributes['name'].blank? }
+	accepts_nested_attributes_for :counseling_sessions, :allow_destroy => true, :reject_if => proc { |attributes| attributes['name'].blank? }
+	accepts_nested_attributes_for :medications, :allow_destroy => true, :reject_if => proc { |attributes| attributes['medicationName'].blank? }
+
+    attr_accessible :other, :spouse, :other, :counseling_session, :medication, :others_attributes
+    attr_protected
 end
 

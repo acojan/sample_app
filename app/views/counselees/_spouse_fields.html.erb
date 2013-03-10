@@ -1,0 +1,26 @@
+<div class="fields">
+<b>Spouse</b> 
+
+<div class="row">
+	<div class='span2'><%= f.label :name %><%= f.text_field :name %></div>
+	<div class='span1'><%= f.label :age %><%= f.text_field :age %></div>
+</div>
+
+<div class='row'>
+	<div class='span2'><%= f.label :landline %><%= f.text_field :landline %></div>
+	<div class='span2'><%= f.label :mobile %><%= f.text_field :mobile %></div>
+</div>
+
+<div class='row'>
+	<div class='span2'><%= f.label :email %><%= f.text_field :email %></div>
+	<div class='span2'><%= f.label :religion %><%= f.text_field :religion %></div>
+</div>
+
+<div class='row'>
+	<div class='span2'><%= f.label 'Highest Educational Attainment' %><%= f.text_field :education %></div>
+</div>
+<br>
+
+<p><%= link_to_remove_fields "remove", f%> </p>
+
+</div>

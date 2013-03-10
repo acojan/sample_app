@@ -51,13 +51,13 @@ end
 class Organization < Person 
 end
 
-class Counselee < Person 
-end
-
 class Alumni < Person 
 end
 
 class Staff < Person 
+end
+
+class Counselee < Person 
 end
 
 class Counselor < Person 

@@ -1,4 +1,14 @@
-class CounseleesController < PeopleController
+class CounseleesController < ApplicationController
+
+  def new
+    @person = Counselee.new
+    @person.others.build
+    @person.spouses.build
+    @person.medications.build
+    
+    @type = 'Counselee'
+    render 'people/new'
+  end  
   
   def show
   	@counselee = Counselee.find(params[:id])
@@ -6,9 +16,8 @@ class CounseleesController < PeopleController
 
 	def create
 	@counselee = Counselee.new(params[:counselee])
-  @counselee.build_others
-      if @counselee.save and @others.save
-        flash[:success] = "Entry: counselee Succesfully Created, please continue with forms"
+      if @counselee.save!
+        flash[:success] = "Entry: Counselee Succesfully Created."
         redirect_to @counselee 
       else
         render 'new'
