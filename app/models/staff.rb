@@ -38,5 +38,7 @@
 #
 
 class Staff < Person
-  # attr_accessible :title, :body
+	has_many :services
+	has_many :individuals, :through => :services
+	has_many :organizations, :through => :services
 end

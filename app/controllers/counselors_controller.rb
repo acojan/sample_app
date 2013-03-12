@@ -1,4 +1,13 @@
-class CounselorsController < PeopleController
+class CounselorsController < ApplicationController
+
+  def new
+  @person = Counselor.new
+  @type = 'Counselor'
+  @person.build_skill
+  
+  render 'people/new'
+  end
+
   def show
   	@counselor = Counselor.find(params[:id])
 	end 

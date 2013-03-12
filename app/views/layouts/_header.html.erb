@@ -18,15 +18,15 @@
                 Add Entry <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Client: Individual", new_person_path(type: 'Individual') %></li>
-                <li><%= link_to "Client: Organization", new_person_path(type: 'Organization') %></li>
+                <li><%= link_to "Client: Individual", new_individual_path %></li>
+                <li><%= link_to "Client: Organization", new_organization_path %></li>
                 <li class="divider"></li>
-                <li><%= link_to "Counselor", new_counselor_path(type: 'Counselor') %></li>
+                <li><%= link_to "Counselor", new_counselor_path %></li>
                 <li><%= link_to "Counselee", new_counselee_path %></li>
                 <li class="divider"></li>
-                <li><%= link_to "Staff", new_person_path(type: 'Staff') %></li>
-                <li><%= link_to "Student", new_person_path(type: 'Student') %></li>
-                <li><%= link_to "Alumni", new_person_path(type: 'Alumni') %></li>
+                <li><%= link_to "Staff", new_staff_path %></li>
+                <li><%= link_to "Student", new_student_path %></li>
+                <li><%= link_to "Alumni", new_alumni_path %></li>
             </ul>
 
               <li id="fat-menu" class="dropdown">

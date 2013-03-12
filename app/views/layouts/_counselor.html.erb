@@ -1,2 +1,40 @@
 <%= f.hidden_field :isCounselor, value: true%>
 
+<%= f.label :affiliation %>
+<%= f.text_field :affiliation %>
+
+<%= f.label :occupation %>
+<%= f.text_field :occupation %>
+
+<%= f.label :education %>
+<%= f.text_field :education %>
+
+<%= f.label :religion %>
+<%= f.text_field :religion %>
+
+<%= f.label :marriage_date %>
+<%= f.date_select :marriage_date %>
+
+<%= f.label :marriage_status %>
+<%= f.text_field :marriage_status %>
+
+
+<h3> Skills </h3>
+<%= f.fields_for :skills do |ff| %>
+<div class="row">
+<div class='span4'>
+	<%= ff.check_box :administration %> Administration<br>
+	<%= ff.check_box :courseDev  %> Course Development<br>
+	<%= ff.check_box :events %> Events<br>
+	<%= ff.check_box :facilitation %> Facilitation<br>
+	<%= ff.check_box :fundRaising %> Fund Raising<br>
+	<%= ff.check_box :presentations %> Making Presentations<br>
+	<%= ff.check_box :projects %> Managing Projects<br>
+	<%= ff.check_box :teaching %> Teaching<br>
+	<%= ff.check_box :workshops %> Conducting Workshops<br>
+
+</div>
+<div class='span4'>
+	<%= ff.label :others%>
+	<%= ff.text_area :others, rows: 3 %> 
+<%end%>

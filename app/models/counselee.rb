@@ -41,7 +41,8 @@ class Counselee < Person
 	has_many :spouses, :dependent => :destroy
 	has_many :others, :dependent => :destroy
 	has_many :medications, :dependent => :destroy
-	
+	has_one :problem, :dependent => :destroy
+
 	has_many :counseling_sessions, :dependent => :destroy
 	has_many :counselors, :through => :counseling_sessions
 
@@ -50,7 +51,7 @@ class Counselee < Person
 	accepts_nested_attributes_for :counseling_sessions, :allow_destroy => true, :reject_if => proc { |attributes| attributes['name'].blank? }
 	accepts_nested_attributes_for :medications, :allow_destroy => true, :reject_if => proc { |attributes| attributes['medicationName'].blank? }
 
-    attr_accessible :other, :spouse, :other, :counseling_session, :medication, :others_attributes
+    attr_accessible :other, :spouse, :problem, :other, :counseling_sessions_attributes, :medications_attributes, :others_attributes
     attr_protected
 end
 

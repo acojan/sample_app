@@ -1,6 +1,13 @@
 class OrganizationsController < PeopleController
 
-	def show
+	def new
+    @person=Organization.new
+    @type='Organization'
+
+    render 'people/new'
+  end
+
+  def show
   	@org = Organization.find(params[:id])
 	end 
 

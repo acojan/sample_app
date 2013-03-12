@@ -42,25 +42,26 @@ class Person < ActiveRecord::Base
   attr_protected
 end
 
-class Student < Person 
-end
 
-class Individual < Person 
-end
+# class Student < Person 
+# end
 
-class Organization < Person 
-end
+# class Individual < Person 
+# end
 
-class Alumni < Person 
-end
+# class Organization < Person 
+# end
 
-class Staff < Person 
-end
+# class Alumni < Person 
+# end
 
-class Counselee < Person 
-end
+# class Staff < Person 
+# end
 
-class Counselor < Person 
-end
+# class Counselee < Person 
+# end
+
+# class Counselor < Person 
+# end
 
 

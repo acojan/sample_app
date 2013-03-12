@@ -1,4 +1,11 @@
-class IndividualsController < PeopleController
+class IndividualsController < ApplicationController
+
+  def new
+    @person = Individual.new
+    @type = 'Individual'
+
+    render 'people/new'
+  end
 
 	def show
   	@individual = Individual.find(params[:id])

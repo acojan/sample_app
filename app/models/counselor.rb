@@ -38,5 +38,25 @@
 #
 
 class Counselor < Person
-  # attr_accessible :title, :body
+	has_many :avaliabilities, :dependent => :destroy
+	has_many :counseling_sessions, :dependent => :destroy
+	has_many :counselees, :through => :counseling_sessions, :dependent => :destroy
+	has_many :clusters, :dependent => :destroy
+	has_many :spouses, :dependent => :destroy
+	has_many :work_experiences, :dependent => :destroy
+	has_many :academic_records, :dependent => :destroy 
+	has_many :counseling_experiences, :dependent => :destroy
+	has_one :skill, :dependent => :destroy
+
+	has_many :counseling_sessions, :dependent => :destroy
+	has_many :counselors, :through => :counseling_sessions
+
+	accepts_nested_attributes_for :avaliabilities, :allow_destroy => true, :reject_if => proc { |attributes| attributes['day'].blank? }
+	accepts_nested_attributes_for :spouses, :allow_destroy => true, :reject_if => proc { |attributes| attributes['name'].blank? }
+	accepts_nested_attributes_for :counseling_experiences, :allow_destroy => true, :reject_if => proc { |attributes| attributes['courseName'].blank? }
+	accepts_nested_attributes_for :work_experiences, :allow_destroy => true, :reject_if => proc { |attributes| attributes['previousWork'].blank? }
+	accepts_nested_attributes_for :clusters, :allow_destroy => true, :reject_if => proc { |attributes| attributes['clusterName'].blank? }
+	accepts_nested_attributes_for :academic_records, :allow_destroy => true, :reject_if => proc { |attributes| attributes['name'].blank? }
+
+    attr_protected
 end

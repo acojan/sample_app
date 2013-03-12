@@ -1,0 +1,12 @@
+<div class="fields">
+<div class="row">
+	<div class="span2"><%= f.label 'Name' %><%= f.text_field :programName %></div>
+</div>
+
+<div class='row'>
+	<div class='span1'><p>Year:</p></div>
+	<div class="span1"><%= f.label 'Start' %><%= f.text_field :startYear %></div>
+	<div class="span1"><%= f.label 'End' %><%= f.text_field :endYear %></div>
+</div>
+<p><%= link_to_remove_fields "remove", f %> </p>
+</div>

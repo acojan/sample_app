@@ -1,7 +1,7 @@
 <h3> Creating new <%=@type%> </h3>
 
 <div class="row"><div class="span9"><div class="well">
- <%= form_for(@person) do |f| %>
+ <%= nested_form_for(@person) do |f| %>
 
       <%= f.label :name %>
       <%= f.text_field :name %>
@@ -25,9 +25,11 @@
 
 <div class="row"><div class="span12">
 
-    	 <%= render :partial => "layouts/individual", :locals => { :f => f }    if @type=='Individual' or @type=='Alumni' %>
+    	 <%= render :partial => "layouts/individual", :locals => { :f => f }    if @type=='Individual' %>
+       <%= render :partial => "layouts/alumni", :locals => { :f => f }        if @type=='Alumni' %>
        <%= render :partial => "layouts/org", :locals => { :f => f }           if @type=='Organization' %>
-       <%= render :partial => "layouts/student", :locals => { :f => f }       if @type=='Student' or @type=='Staff' %>
+       <%= render :partial => "layouts/student", :locals => { :f => f }       if @type=='Student' %>
+       <%= render :partial => "layouts/student", :locals => { :f => f }       if @type=='Staff' %>
        <%= render :partial => "layouts/counselee", :locals => { :f => f }     if @type=='Counselee' %>
        <%= render :partial => "layouts/counselor", :locals => { :f => f }     if @type=='Counselor' %>
 

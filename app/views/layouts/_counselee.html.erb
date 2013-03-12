@@ -9,9 +9,6 @@
 <%= f.label :religion %>
 <%= f.text_field :religion %>
 
-<%= f.label :problems %>
-<%= f.text_field :problems %>
-
 <%= f.label :previousCounseling_name %>
 <%= f.text_field :previousCounseling_name %>
 
@@ -32,30 +29,47 @@
 
 <%= f.label :marriage_status %>
 <%= f.text_field :marriage_status %>
+
+<h3> Problem Areas </h3>
+<%= f.fields_for :problems do |ff| %>
+<div class="row">
+<div class='span4'>
+	<%= ff.check_box :premarital, value: true %> Premarital<br>
+	<%= ff.check_box :marriage  %> Marriage<br>
+	<%= ff.check_box :family %> Family<br>
+	<%= ff.check_box :parentChild %> Parent-Child<br>
+	<%= ff.check_box :child %> Child<br>
+	<%= ff.check_box :personal %> Personal<br>
+</div>
+<div class='span4'>
+	<%= ff.label :others%>
+	<%= ff.text_area :others, rows: 3 %> 
+<%end%>
+</div></div>
 <hr>
 
 <div class='span4'>
 <h3> Spouse </h3>
-<%= f.fields_for :spouses do |builder| %>
-	<%= render 'spouse_fields', :f => builder %><br>
+<%= f.fields_for :spouses do |ff|%>
+	<%= render 'spouse_fields', :f => ff %><br>
 <%end%>
-<p><%= link_to_add_fields "Add entry", f, :spouses %></p>
+<p><%= f.link_to_add "Add entry", :spouses %></p>
 </div>
 
 <div class='span4'>
-<h3> Others who live at home </h3>
-<%= f.fields_for :others do |builder| %>
-	<%= render 'other_fields', :f => builder %><br>
+<h3> Others </h3>
+<%= f.fields_for :others do |ff| %>
+	<%= render 'other_fields', :f => ff %><br>
 <%end%>
-<p><%= link_to_add_fields "Add entry", f, :others %></p>
+<p><%= f.link_to_add "Add entry", :others %></p>
 </div>
 
 <div class='span3'>
 <h3> Medication </h3>
-<%= f.fields_for :medications do |builder| %>
-	<%= render 'medication_fields', :f => builder %><br>
+<%= f.fields_for :medications do |ff| %>
+	<%= render 'medication_fields', :f => ff %><br>
 <%end%>
-<p><%= link_to_add_fields "Add entry", f, :medications %></p>
+<p><%= f.link_to_add "Add entry", :medications %></p>
 </div>
 
 

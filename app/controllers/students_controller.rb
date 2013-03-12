@@ -1,5 +1,14 @@
-class StudentsController < PeopleController
+class StudentsController < ApplicationController
 
+  def new
+    @person = Student.new
+    @person.programs.build
+    @person.subject_infos.build
+    @person.build_growth_group
+
+    @type = 'Student'
+    render 'people/new'
+  end
   def create
     @student = Student.new(params[:student])
 

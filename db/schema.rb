@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130307101912) do
+ActiveRecord::Schema.define(:version => 20130311035906) do
+
+  create_table "academic_records", :force => true do |t|
+    t.string   "level"
+    t.string   "school"
+    t.string   "periodAttended"
+    t.string   "degree"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "alumnis", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -153,6 +162,19 @@ ActiveRecord::Schema.define(:version => 20130307101912) do
     t.integer  "age"
   end
 
+  create_table "problems", :force => true do |t|
+    t.boolean  "premarital"
+    t.boolean  "marriage"
+    t.boolean  "family"
+    t.boolean  "parentChild"
+    t.boolean  "child"
+    t.boolean  "personal"
+    t.text     "others"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "counselee_id"
+  end
+
   create_table "programs", :force => true do |t|
     t.string   "programId"
     t.string   "programName"
@@ -171,9 +193,26 @@ ActiveRecord::Schema.define(:version => 20130307101912) do
     t.integer  "hours"
     t.integer  "year"
     t.string   "staff_id"
-    t.string   "client_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "individual_id"
+    t.string   "organization_id"
+  end
+
+  create_table "skills", :force => true do |t|
+    t.boolean  "teaching"
+    t.boolean  "facilitation"
+    t.boolean  "events"
+    t.boolean  "administration"
+    t.boolean  "fundRaising"
+    t.boolean  "courseDev"
+    t.boolean  "projects"
+    t.boolean  "presentations"
+    t.boolean  "workshops"
+    t.text     "others"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "counselor_id"
   end
 
   create_table "spouses", :force => true do |t|

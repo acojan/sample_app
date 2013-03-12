@@ -2,10 +2,11 @@ class CounseleesController < ApplicationController
 
   def new
     @person = Counselee.new
-    @person.others.build
-    @person.spouses.build
-    @person.medications.build
-    
+    # @person.others.build
+    # @person.spouses.build
+    # @person.medications.build
+    @person.build_problem
+
     @type = 'Counselee'
     render 'people/new'
   end  
