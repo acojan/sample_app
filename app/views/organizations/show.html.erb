@@ -2,3 +2,6 @@
   <% x=@org.attributes[attribute]%>
   <p><%= attribute.humanize if x!=nil%> <%= x.to_s if x!=nil %></p>
 <%end%>
+
+
+<%= link_to "edit", edit_organization_path(@org)%>

@@ -12,7 +12,6 @@ class AlumnisController < PeopleController
 
 	def create
 	@alumni = Alumni.new(params[:alumni])
-  	age = Date.today.year - @alumni.birthday.year
     @alumni.setAge
       if @alumni.save
         flash[:success] = "Entry: alumni Succesfully Created"

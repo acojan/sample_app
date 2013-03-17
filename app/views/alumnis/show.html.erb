@@ -1,4 +1,6 @@
-<% for attribute in @individual.attributes.keys %>
-  <% x=@individual.attributes[attribute]%>
+<% for attribute in @alumni.attributes.keys %>
+  <% x=@alumni.attributes[attribute]%>
   <p><%= attribute.humanize if x!=nil%> <%= x.to_s if x!=nil %></p>
 <% end %>
+
+<%= link_to "edit", edit_alumni_path(@alumni)%>

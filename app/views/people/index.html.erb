@@ -21,7 +21,8 @@
   <% @people.each do |f| %>
     <li>
       <h4><%= link_to f.name, f %></h4>
-      <h5><%=f.type %> | <%=f.city %>, <%=f.province %> | <%=f.email %> </h5><%= link_to "delete", f, method: :delete, data: { confirm: "You sure?" } %>
+      <h5><%=f.type %> | <%=f.city %>, <%=f.province %> | <%=f.email %> </h5>
+      <%= link_to "delete", f, method: :delete, data: { confirm: "You sure?" } %>
     </li>
   <% end %>
 </ul>

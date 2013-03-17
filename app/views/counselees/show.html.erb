@@ -2,3 +2,6 @@
   <% x=@counselee.attributes[attribute]%>
   <p><%= attribute.humanize if x!=nil%> <%= x.to_s if x!=nil %></p>
 <% end %>
+
+
+<%= link_to "edit", edit_counselee_path(@counselee)%>

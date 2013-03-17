@@ -44,7 +44,8 @@ class Alumni < Person
 	has_one :growth_group, :dependent => :destroy
   	
   	attr_accessible :subject_info, :program, :growth_group
-
+ 	attr_protected
+ 	
   	accepts_nested_attributes_for :subject_infos, :allow_destroy => true, :reject_if => proc { |attributes| attributes['subjectName'].blank? }
 	accepts_nested_attributes_for :growth_group, :allow_destroy => true, :reject_if => proc { |attributes| attributes['content'].blank? }
 	accepts_nested_attributes_for :programs, :allow_destroy => true, :reject_if => proc { |attributes| attributes['programName'].blank? }
