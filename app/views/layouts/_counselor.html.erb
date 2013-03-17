@@ -1,24 +1,57 @@
 <%= f.hidden_field :isCounselor, value: true%>
 
-<%= f.label :affiliation %>
-<%= f.text_field :affiliation %>
-
-<%= f.label :occupation %>
-<%= f.text_field :occupation %>
-
-<%= f.label :education %>
-<%= f.text_field :education %>
-
-<%= f.label :religion %>
-<%= f.text_field :religion %>
-
-<%= f.label :marriage_date %>
-<%= f.date_select :marriage_date %>
-
-<%= f.label :marriage_status %>
-<%= f.text_field :marriage_status %>
+<div class='row'>
+<div class='span2'><%= f.label :affiliation %><%= f.text_field :affiliation %></div>
+<div class='span2'><%= f.label :occupation %><%= f.text_field :occupation %></div>
+<div class='span3'><%= f.label 'Highest Educational Attainment' %><%= f.text_field :education %></div>
+<div class='span2'><%= f.label :religion %><%= f.text_field :religion %></div>
+</div>
 
 
+<h4>Academic Background</h4>
+<div class='row'><div class='span10'>	
+<%= f.fields_for :academic_records do |ff|%>
+      <%= render 'academic_record_fields', :f => ff %>
+<%end%>
+<br><%= link_to_add_fields "Add more", f, :academic_records %></div>
+</div>
+<hr>
+
+<h4>Avaliability</h4>
+<div class='row'><div class='span10'>	
+<%= f.fields_for :availabilities do |ff|%>
+      <%= render 'availabilities_fields', :f => ff %>
+<%end%>
+<br><%= link_to_add_fields "Add more", f, :availabilities %></div>
+</div>
+<hr>
+
+<h4>Clusters</h4>
+<div class='row'><div class='span10'>	
+<%= f.fields_for :clusters do |ff|%>
+      <%= render 'cluster_fields', :f => ff %>
+<%end%>
+<br><%= link_to_add_fields "Add more", f, :clusters %></div>
+</div>
+<hr>
+
+<h4>Work Experience</h4>
+<div class='row'><div class='span8'>	
+<%= f.fields_for :work_experiences do |ff|%>
+      <%= render 'work_experience_fields', :f => ff %>
+<%end%>
+<br><%= link_to_add_fields "Add more", f, :work_experiences %></div>
+</div>
+<hr>
+
+<h4>Counseling Experience</h4>
+<div class='row'><div class='span8'>	
+<%= f.fields_for :counseling_experiences do |ff|%>
+      <%= render 'counseling_experience_fields', :f => ff %>
+<%end%>
+<br><%= link_to_add_fields "Add more", f, :counseling_experiences %></div>
+</div>
+<hr>
 <h3> Skills </h3>
 <%= f.fields_for :skills do |ff| %>
 <div class="row">
@@ -32,9 +65,24 @@
 	<%= ff.check_box :projects %> Managing Projects<br>
 	<%= ff.check_box :teaching %> Teaching<br>
 	<%= ff.check_box :workshops %> Conducting Workshops<br>
-
 </div>
 <div class='span4'>
 	<%= ff.label :others%>
 	<%= ff.text_area :others, rows: 3 %> 
+</div></div>
 <%end%>
+<hr>
+
+<div class='span4'>	
+<h4> Spouse </h4>
+<%= f.label :marriage_date %>
+<%= f.date_select :marriage_date,{prompt: true, order:[:month,:day,:year]}, {class:'horDate'}%>
+<%= f.label :marriage_status %><%= f.text_field :marriage_status %>
+<%= f.fields_for :spouses do |ff|%>
+      <%= render 'spouse_fields', :f => ff %>
+<%end%>
+<br><%= link_to_add_fields "Add more", f, :spouses %></div>
+
+
+
+

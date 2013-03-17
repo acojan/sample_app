@@ -8,11 +8,11 @@
      <%= f.radio_button :sex, "f"%> Female
  	 </div></div>
 
- 	 <div class="row"><div class='span2'>
-	 <%= f.label :birthday %><%= f.date_select(:birthday,start_year: 1940) %>
-	 </div></div>
+ 	 <div class="row"><div class='span5'>
+	 <%= f.label :birthday %><%= f.date_select :birthday,{start_year: 1940, prompt: true, order:[:month,:day,:year]}, {class:'horDate'} %>
+	 	 </div></div>
 
-	 <h3>List of Services Availed</h3>
+	 <h3>List of Services Availed(FIX FOR 'show')</h3>
 </div>
 
 	

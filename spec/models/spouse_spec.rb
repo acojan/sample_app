@@ -13,6 +13,7 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  counselee_id :string(255)
+#  counselor_id :string(255)
 #
 
 require 'spec_helper'

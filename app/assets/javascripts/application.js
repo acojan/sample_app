@@ -14,4 +14,16 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require jquery_nested_form
+//= require jquery.ui.datepicker
+//= require jquery.ui.slider
+//= require timepicker.js
+//= require counselees.js.coffee
 //= require_tree .
+
+$(function() {
+  $("#popup_calendar").datetimepicker({
+      timeFormat: "hh:mm:ss",
+      dateFormat: "yy-mm-dd"
+    });
+});
+

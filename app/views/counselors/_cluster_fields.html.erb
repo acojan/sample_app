@@ -1,0 +1,13 @@
+<fieldset>
+<div class='fields'>
+<b>Cluster</b> 
+
+<div class="row">
+	<div class="span2"><%= f.label 'Cluster Name' %><%= f.text_field :clusterName %></div>
+	<div class="span2"><%= f.label 'Involvement' %><%= f.text_field :clusterInvolvement %></div>
+	<div class="span3"><%= f.label 'Possible Involvement' %><%= f.text_area :possibleInvolvement, rows:2 %></div>
+	<div class="span1"><%= f.hidden_field :_destroy %><%= link_to "remove", '#', class: "remove_fields" %></div>
+</div>
+
+</div>
+</fieldset>

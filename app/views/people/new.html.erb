@@ -1,10 +1,9 @@
 <h3> Creating new <%=@type%> </h3>
 
-<div class="row"><div class="span9"><div class="well">
- <%= nested_form_for(@person) do |f| %>
+ <%= form_for(@person) do |f| %>
+ <div class="row"><div class="span9"><div class="well">
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.label :name %><%= f.text_field :name %>
 
       <div class="row">
       <div class="span4"><%= f.label :street %><%= f.text_field :street %></div>
@@ -19,26 +18,26 @@
       <div class="span3"><%= f.label :mobile %><%= f.text_field :mobile %></div>
       </div>
 
+       <%= f.hidden_field :age %>
 </div></div></div>
+<hr>
 
-      <hr>
 
 <div class="row"><div class="span12">
 
-    	 <%= render :partial => "layouts/individual", :locals => { :f => f }    if @type=='Individual' %>
-       <%= render :partial => "layouts/alumni", :locals => { :f => f }        if @type=='Alumni' %>
-       <%= render :partial => "layouts/org", :locals => { :f => f }           if @type=='Organization' %>
-       <%= render :partial => "layouts/student", :locals => { :f => f }       if @type=='Student' %>
-       <%= render :partial => "layouts/student", :locals => { :f => f }       if @type=='Staff' %>
-       <%= render :partial => "layouts/counselee", :locals => { :f => f }     if @type=='Counselee' %>
-       <%= render :partial => "layouts/counselor", :locals => { :f => f }     if @type=='Counselor' %>
+    	 <%= render "layouts/individual", :f => f    if @type=='Individual' %>
+       <%= render "layouts/alumni", :f => f        if @type=='Alumni' %>
+       <%= render "layouts/org", :f => f           if @type=='Organization' %>
+       <%= render "layouts/student", :f => f       if @type=='Student' %>
+       <%= render "layouts/staff", :f => f         if @type=='Staff' %>
+       <%= render "layouts/counselee", :f => f     if @type=='Counselee' %>
+       <%= render "layouts/counselor", :f => f     if @type=='Counselor' %>
+</div>
+</div>
 
        <div class="row">
-       <div class="span offset8"><%= f.submit "Confirm", class: "btn btn-large btn-primary" %></div>
+       <div class="span offset10"><%= f.submit "Confirm", class: "btn btn-large btn-primary" %></div>
        </div>
-    <% end %>
 
-</div></div>
-
-
+<% end %>
 

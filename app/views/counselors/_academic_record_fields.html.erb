@@ -1,0 +1,14 @@
+<fieldset>
+<div class='fields'>
+<b>Academic Record</b> 
+
+<div class="row">
+	<div class="span2"><%= f.label :level %><%= f.select :level, ['Elementary', 'HighSchool', 'Undergraduate', 'Graduate'] %></div>
+	<div class="span2"><%= f.label :school %><%= f.text_field :school %></div>
+	<div class="span2"><%= f.label 'Period Attended' %><%= f.text_field :periodAttended %></div>
+	<div class="span2"><%= f.label :degree %><%= f.text_field :degree %></div>
+	<div class="span1"><%= f.hidden_field :_destroy %><%= link_to "remove", '#', class: "remove_fields" %></div>
+</div>
+
+</div>
+</fieldset>

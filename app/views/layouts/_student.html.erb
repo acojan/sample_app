@@ -1,31 +1,32 @@
 <div class="row"><div class="span 8 offset 2">
 
-	 <div class="row">
-	 <div class="span3">Sex:&nbsp <%= f.radio_button :sex, "m"%>&nbspMale &nbsp&nbsp  <%= f.radio_button :sex, "f"%>&nbsp Female
- 	 </div> </div>
  	 <div class='row'>
-     <div class="span4"><%= f.label :birthday %><%= f.date_select(:birthday,start_year: 1940) %></div>
+     <div class="span4"> <%= f.label :birthday %><%= f.date_select :birthday,{start_year: 1940, prompt: true, order:[:month,:day,:year]}, {class:'horDate'} %></div>
+     </div>
 
-      <div class="span4 offset1">
-      <h3> Growth Group </h3>
+     <div class="row">
+	 <div class="span3">Sex:&nbsp <%= f.radio_button :sex, "m"%>&nbspMale &nbsp&nbsp  <%= f.radio_button :sex, "f"%>&nbsp Female</div> 
+	 </div>
+
+      <div class="row"><div class="span4">
+      <h4> Growth Group </h4>
       <%= f.fields_for :growth_group do |builder| %>
       <%= builder.label :facilitator %><%= builder.text_field :facilitator %>
       <%= builder.label :year %><%= builder.text_field :year %>
  	  <%end%>
- 	</div>
- 	</div>
+ 	 </div>
+ 	 </div>
 
- 	<div class='row'>
-	<div class='span4'>
-	<h3> Subject Information </h3>
+ 	<div class='row'><div class='span5'>
+	<h4> Subject Information </h4>
 	<%= f.fields_for :subject_infos do |builder| %>
 		<%= render 'subject_info_fields', :f => builder %><br>
 	<%end%>
 	<p><%= link_to_add_fields "Add entry", f, :subject_infos %></p>
-	</div>
+	</div></div>
 
-	<div class='span4 offset1'>
-	<h3> Program Information </h3>
+	<div class='row'><div class='span7'>
+	<h4> Program Information </h4>
 	<%= f.fields_for :programs do |builder| %>
 		<%= render 'program_fields', :f => builder %><br>
 	<%end%>

@@ -35,33 +35,31 @@
 #  isCounselee               :boolean          default(FALSE)
 #  isCounselor               :boolean          default(FALSE)
 #  age                       :integer
+#  childAges                 :string(255)
 #
 
 class Person < ActiveRecord::Base
   attr_accessible :type
   attr_protected
+
+  validates(:name, presence: true)
+  
+  def setAge
+  	if self.birthday != nil	
+  		self.age = Date.today.year - self.birthday.year
+  	end
+  end
+  
+  def self.search(search, type)
+	  if search and type != 'All'
+	    find(:all, :conditions => ['name LIKE ? and type=?', "%#{search}%","#{type}"])
+	  elsif search and type = 'All'
+	    find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+	  else
+      find(:all)
+    end
+	end
 end
 
-
-# class Student < Person 
-# end
-
-# class Individual < Person 
-# end
-
-# class Organization < Person 
-# end
-
-# class Alumni < Person 
-# end
-
-# class Staff < Person 
-# end
-
-# class Counselee < Person 
-# end
-
-# class Counselor < Person 
-# end
 
 

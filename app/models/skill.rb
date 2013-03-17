@@ -19,5 +19,6 @@
 #
 
 class Skill < ActiveRecord::Base
+  belongs_to :counselor
   attr_accessible :administration, :courseDev, :events, :facilitation, :fundRaising, :others, :presentations, :projects, :teaching, :workshops
 end

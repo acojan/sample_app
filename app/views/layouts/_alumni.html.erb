@@ -1,0 +1,27 @@
+<div class="row"><div class="span 8 offset 2">
+
+ 	 <div class='row'>
+     <div class="span4"> <%= f.label :birthday %><%= f.date_select :birthday,{start_year: 1940, prompt: true, order:[:month,:day,:year]}, {class:'horDate'} %></div>
+     </div>
+
+     <div class="row">
+	 <div class="span3">Sex:&nbsp <%= f.radio_button :sex, "m"%>&nbspMale &nbsp&nbsp  <%= f.radio_button :sex, "f"%>&nbsp Female</div> 
+	 </div>
+
+	 <div class='row'>
+	 <div class="span3"><%= f.label :affiliation %><%= f.text_field :affiliation %></div> 
+	 </div>
+
+	<div class='row'><div class='span7'>
+	<h4> Program Information </h4>
+	<%= f.fields_for :programs do |builder| %>
+		<%= render 'program_fields', :f => builder %><br>
+	<%end%>
+	<p><%= link_to_add_fields "Add entry", f, :programs %></p>
+	</div></div>
+
+
+
+
+</div></div>
+	

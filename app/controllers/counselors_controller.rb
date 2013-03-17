@@ -1,9 +1,9 @@
-class CounselorsController < ApplicationController
+class CounselorsController < PeopleController
 
   def new
   @person = Counselor.new
   @type = 'Counselor'
-  @person.build_skill
+  @person.skills.build
   
   render 'people/new'
   end
@@ -14,8 +14,6 @@ class CounselorsController < ApplicationController
 
 	def create
 	@counselor = Counselor.new(params[:counselor])
-  	age = Date.today.year - @counselor.birthday.year
-    @counselor.age = age
       if @counselor.save
         flash[:success] = "Entry: counselor Succesfully Created"
         redirect_to @counselor	

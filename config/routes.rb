@@ -10,6 +10,7 @@ SampleApp::Application.routes.draw do
  resources :students
  resources :staffs
  resources :others
+ resources :counseling_sessions
  resources :sessions, only: [:new, :create, :destroy]
 
   match '/signin',  to: 'sessions#new' 

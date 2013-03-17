@@ -1,9 +1,9 @@
-class StudentsController < ApplicationController
+class StudentsController < PeopleController
 
   def new
     @person = Student.new
-    @person.programs.build
-    @person.subject_infos.build
+    #@person.programs.build
+    #@person.subject_infos.build
     @person.build_growth_group
 
     @type = 'Student'
@@ -11,7 +11,7 @@ class StudentsController < ApplicationController
   end
   def create
     @student = Student.new(params[:student])
-
+    @student.setAge
       if @user.save
         flash[:success] = "Entry creation succesful."	
         redirect_to @student

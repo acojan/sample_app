@@ -1,9 +1,11 @@
-<div class="fields">
-<b>Subject Info </b> 
-
+<fieldset>
+<div class='fields'>
+<b>Subject</b> 
 <div class="row">
-	<div class="span2"><%= f.label 'Name' %><%= f.text_field :subjectName %></div>
-	<div class="span1"><%= f.label 'Grade' %><%= f.text_field :grade %></div>
+<div class="span2"><%= f.label 'Name' %><%= f.text_field :subjectName %></div>
+<div class="span1"><%= f.label 'Grade' %><%= f.text_field :grade %></div>
+<div class='span1'><%= f.hidden_field :_destroy %><%= link_to "remove", '#', class: "remove_fields" %></div>
 </div>
-<p><%= link_to_remove_fields "remove", f %> </p>
+
 </div>
+</fieldset>

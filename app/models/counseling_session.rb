@@ -18,4 +18,10 @@ class CounselingSession < ActiveRecord::Base
   belongs_to :counselee
   belongs_to :counselor
   attr_accessible :counseleeName, :counselee_id, :counselorName, :counselor_id, :endTime, :location, :startTime
+
+  def setNames
+  	self.counseleeName = self.counselee.name
+  	self.counselorName = self.counselor.name
+  end
+
 end

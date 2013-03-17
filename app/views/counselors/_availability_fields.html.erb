@@ -1,0 +1,14 @@
+<fieldset>
+<div class='fields'>
+<b>Avaliability</b> 
+
+<div class="row">
+	<div class="span2"><%= f.label :day %><%= f.select :day, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %></div>
+	<div class="span2"><%= f.label 'Start time' %><%= f.time_select :startTime,{},{class:'horDate'} %></div>
+	<div class="span2"><%= f.label 'End time' %><%= f.time_select :endTime,{},{class:'horDate'}%></div>
+	<div class="span2"><%= f.label :location %><%= f.text_field :location %></div>
+	<div class="span1"><%= f.hidden_field :_destroy %><%= link_to "remove", '#', class: "remove_fields" %></div>
+</div>
+
+</div>
+</fieldset>

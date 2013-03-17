@@ -1,4 +1,4 @@
-class IndividualsController < ApplicationController
+class IndividualsController < PeopleController
 
   def new
     @person = Individual.new
@@ -13,9 +13,7 @@ class IndividualsController < ApplicationController
 
 	def create
 	@individual = Individual.new(params[:individual])
-  age = Date.today.year - @individual.birthday.year
-  @individual.age = age
-
+  @individual.setAge
       if @individual.save
         flash[:success] = "Entry: Individual Succesfully Created"
         redirect_to @individual	

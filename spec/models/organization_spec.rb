@@ -35,6 +35,7 @@
 #  isCounselee               :boolean          default(FALSE)
 #  isCounselor               :boolean          default(FALSE)
 #  age                       :integer
+#  childAges                 :string(255)
 #
 
 require 'spec_helper'

@@ -1,0 +1,30 @@
+<% provide(:title, 'All users') %>
+
+<div class='row'>
+<h1>Search Database</h1>
+
+<%= form_tag people_path, method: 'get' do %> 
+	
+	<div class='span4 offset4'><%= text_field_tag :search, params[:search] %></div>
+	</div>
+
+	<div class='row'>
+	<div class='span2 offset4'><%= select_tag :type, options_for_select([['All'],['Individual'],['Organization'],['Counselee'],['Counselor'],['Staff'],['Student'],['Alumni']],selected: params[:type]) %></div>  
+	<div class='span1'><%= submit_tag 'Search', name: nil , :value => :search, class: "btn btn-large btn-primary" %></div>
+
+</div>
+<% end %>
+
+
+<ul class="users">
+<%if @people!=nil%> 
+  <% @people.each do |f| %>
+    <li>
+      <h4><%= link_to f.name, f %></h4>
+      <h5><%=f.type %> | <%=f.city %>, <%=f.province %> | <%=f.email %> </h5><%= link_to "delete", f, method: :delete, data: { confirm: "You sure?" } %>
+    </li>
+  <% end %>
+</ul>
+<%else%>
+<p> No entries matched your search terms </p> 
+<% end %>

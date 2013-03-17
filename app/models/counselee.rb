@@ -35,18 +35,20 @@
 #  isCounselee               :boolean          default(FALSE)
 #  isCounselor               :boolean          default(FALSE)
 #  age                       :integer
+#  childAges                 :string(255)
 #
 
 class Counselee < Person
 	has_many :spouses, :dependent => :destroy
 	has_many :others, :dependent => :destroy
 	has_many :medications, :dependent => :destroy
-	has_one :problem, :dependent => :destroy
+	has_many :problems, :dependent => :destroy
 
 	has_many :counseling_sessions, :dependent => :destroy
 	has_many :counselors, :through => :counseling_sessions
 
 	accepts_nested_attributes_for :spouses, :allow_destroy => true, :reject_if => proc { |attributes| attributes['name'].blank? }
+	accepts_nested_attributes_for :problems, :allow_destroy => true
 	accepts_nested_attributes_for :others, :allow_destroy => true, :reject_if => proc { |attributes| attributes['name'].blank? }
 	accepts_nested_attributes_for :counseling_sessions, :allow_destroy => true, :reject_if => proc { |attributes| attributes['name'].blank? }
 	accepts_nested_attributes_for :medications, :allow_destroy => true, :reject_if => proc { |attributes| attributes['medicationName'].blank? }

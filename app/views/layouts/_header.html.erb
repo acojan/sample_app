@@ -1,7 +1,8 @@
   <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
-          <%= link_to "Image Home Logo", '#', id: "logo" %>
+          <%= image_tag "icon.jpg", :height => "30", :width => "30" ,id:'logo'%>
+          <%= link_to "Cefam Online DB", root_path, id: "logo" %>
           <nav>
 
             <ul class="nav pull-right">
@@ -12,7 +13,7 @@
               <% if signed_in? %>
 
               <li><%= link_to "List users", users_path %></li>
-              <li><%= link_to "Search", '#' %></li>
+              <li><%= link_to "Search", people_path %></li>
               <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Add Entry <b class="caret"></b>

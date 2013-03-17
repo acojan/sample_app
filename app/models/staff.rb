@@ -35,10 +35,14 @@
 #  isCounselee               :boolean          default(FALSE)
 #  isCounselor               :boolean          default(FALSE)
 #  age                       :integer
+#  childAges                 :string(255)
 #
 
 class Staff < Person
 	has_many :services
 	has_many :individuals, :through => :services
 	has_many :organizations, :through => :services
+
+	accepts_nested_attributes_for :services, :allow_destroy => true, :reject_if => proc { |attributes| attributes['serviceName'].blank? }
+
 end

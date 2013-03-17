@@ -1,0 +1,11 @@
+<fieldset>
+<div class='fields'>
+
+<div class="row">
+	<div class="span3"><%= f.label 'Course Name' %><%= f.text_field :courseName %></div>
+	<div class="span2"><%= f.label 'Conducted by' %><%= f.text_field :conductedBy %></div>
+	<div class="span1"><%= f.hidden_field :_destroy %><%= link_to "remove", '#', class: "remove_fields" %></div>
+</div>
+
+</div>
+</fieldset>

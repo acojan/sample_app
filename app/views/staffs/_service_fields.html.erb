@@ -1,0 +1,16 @@
+<fieldset>
+<div class='fields'>
+<b>Service</b> 
+
+<div class="row">
+	<div class="span2"><%= f.label 'Service Name' %><%= f.text_field :serviceName %></div>
+	<div class="span2"><%= f.label 'Service Nature' %><%= f.text_field :clusterInvolvement %></div>
+	<div class="span3"><%= f.label :year %><%= f.text_area :year %></div>
+	<div class="span1"><%= f.hidden_field :_destroy %><%= link_to "remove", '#', class: "remove_fields" %></div>
+</div>
+
+<div class='row'>
+
+
+</div>
+</fieldset>

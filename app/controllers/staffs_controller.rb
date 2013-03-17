@@ -1,12 +1,14 @@
 class StaffsController < PeopleController
-def show
-  	@staff = Staff.find(params[:id])
+def new
+  	@person = Staff.new
+    @type = 'Staff'
+
+    render 'people/new'
 	end 
 
 	def create
 	@staff = Staff.new(params[:staff])
-  	age = Date.today.year - @staff.birthday.year
-
+  @staff.setAge
       if @staff.save
         flash[:success] = "Entry: staff Succesfully Created"
         redirect_to @staff	

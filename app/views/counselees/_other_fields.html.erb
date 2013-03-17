@@ -1,5 +1,6 @@
-<b>Other</b> 
-
+<fieldset>
+	<div class='fields'>
+	<b>Other</b> 
 	<div class='row'>
 	<div class='span2'><%= f.label :name %><%= f.text_field :name %></div>
 	<div class='span1'><%= f.label :age %><%= f.text_field :age %></div>
@@ -10,5 +11,7 @@
 	<div class='span2'><%= f.label :relation %><%= f.text_field :relation %></div>
 	</div>
 
-<p><%= f.link_to_remove "remove" %> </p>
-
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "remove", '#', class: "remove_fields" %>
+</div>
+</fieldset>

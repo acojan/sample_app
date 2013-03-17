@@ -13,9 +13,11 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  counselee_id :string(255)
+#  counselor_id :string(255)
 #
 
 class Spouse < ActiveRecord::Base
   belongs_to :counselee
+  belongs_to :counselor
   attr_accessible :age, :counselee_id, :education, :email, :landline, :mobile, :name, :religion
 end

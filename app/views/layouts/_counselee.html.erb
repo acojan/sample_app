@@ -1,40 +1,32 @@
 <%= f.hidden_field :isCounselee, value: true%>
+<div class='row'><div class='span4'>
+<%= f.label :birthday %><%= f.date_select :birthday,{start_year: 1940, prompt: true, order:[:month,:day,:year]}, {class:'horDate'} %>
+</div></div>
 
-<%= f.label :occupation %>
-<%= f.text_field :occupation %>
+<div class='row'>
+<div class='span2'><%= f.label :occupation %><%= f.text_field :occupation %></div>
+<div class='span3'><%= f.label 'Highest Educational Attainment' %><%= f.text_field :education %></div>
+<div class='span2'><%= f.label :religion %><%= f.text_field :religion %></div>
+</div>
 
-<%= f.label :education %>
-<%= f.text_field :education %>
+<h4>Previous Counseling Experience</h4>
+<div class='row'>
+<div class='span5'>
+<div class='span2'><%= f.label 'Name' %><%= f.text_field :previousCounseling_name %></div>
+<div class='span2'><%= f.label 'Where' %><%= f.text_field :previousCounseling_where %></div>
+<div class='span3'><%= f.label 'Date' %><%= f.date_select :previousCounseling_when,{prompt: true, order:[:month, :year]}, 
+	{class:'horDate'}%></div>
+</div>
+<div class='span 3'>
+<div class='span4'><%= f.label 'Result' %><%= f.text_area :previousCounseling_result, rows: 3 %></div>
+</div>
+</div>
 
-<%= f.label :religion %>
-<%= f.text_field :religion %>
-
-<%= f.label :previousCounseling_name %>
-<%= f.text_field :previousCounseling_name %>
-
-<%= f.label :previousCounseling_when %>
-<%= f.date_select :previousCounseling_when %>
-
-<%= f.label :previousCounseling_where %>
-<%= f.text_field :previousCounseling_where %>
-
-<%= f.label :previousCounseling_result %>
-<%= f.text_field :previousCounseling_result %>
-
-<%= f.label :last_checkup_date %>
-<%= f.date_select :last_checkup_date %>
-
-<%= f.label :marriage_date %>
-<%= f.date_select :marriage_date %>
-
-<%= f.label :marriage_status %>
-<%= f.text_field :marriage_status %>
-
-<h3> Problem Areas </h3>
+<h4> Problem Areas </h4>
 <%= f.fields_for :problems do |ff| %>
 <div class="row">
-<div class='span4'>
-	<%= ff.check_box :premarital, value: true %> Premarital<br>
+<div class='span2 offset1'>
+	<%= ff.check_box :premarital %> Premarital<br>
 	<%= ff.check_box :marriage  %> Marriage<br>
 	<%= ff.check_box :family %> Family<br>
 	<%= ff.check_box :parentChild %> Parent-Child<br>
@@ -48,28 +40,34 @@
 </div></div>
 <hr>
 
-<div class='span4'>
-<h3> Spouse </h3>
+<div class="row">
+
+<div class='span4'>	
+<h4> Spouse </h4>
+<%= f.label :marriage_date %>
+<%= f.date_select :marriage_date,{prompt: true, order:[:month,:day,:year]}, {class:'horDate'}%>
+<%= f.label :marriage_status %><%= f.text_field :marriage_status %>
 <%= f.fields_for :spouses do |ff|%>
-	<%= render 'spouse_fields', :f => ff %><br>
+      <%= render 'spouse_fields', :f => ff %>
 <%end%>
-<p><%= f.link_to_add "Add entry", :spouses %></p>
-</div>
+<br><%= link_to_add_fields "Add more", f, :spouses %></div>
 
 <div class='span4'>
-<h3> Others </h3>
+<h4> Others </h4>
 <%= f.fields_for :others do |ff| %>
-	<%= render 'other_fields', :f => ff %><br>
+      <%= render 'other_fields', :f => ff %>
 <%end%>
-<p><%= f.link_to_add "Add entry", :others %></p>
-</div>
+<br><%= link_to_add_fields "Add more", f, :others %></div>
 
-<div class='span3'>
-<h3> Medication </h3>
+<div class='span4'>
+<h4> Medication </h4>
+<%= f.label :last_checkup_date %>
+<%= f.date_select :last_checkup_date,{prompt: true, order:[:month,:day,:year]}, {class:'horDate'}%>
 <%= f.fields_for :medications do |ff| %>
-	<%= render 'medication_fields', :f => ff %><br>
+      <%= render 'medication_fields', :f => ff %>
 <%end%>
-<p><%= f.link_to_add "Add entry", :medications %></p>
+<br><%= link_to_add_fields "Add more", f, :medications %></div>
+
 </div>
 
 

@@ -1,5 +1,6 @@
+<fieldset>
+<div class='fields'>
 <b>Medication</b> 
-
 <div class="row">
 	<div class="span2"><%= f.label 'Name' %><%= f.text_field :medicationName %></div>
 </div>
@@ -7,5 +8,8 @@
 <div class='row'>
 	<div class="span1"><%= f.label :dosage %><%= f.text_field :dosage %></div>
 </div>
-<p><%= f.link_to_remove "remove" %> </p>
 
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "remove", '#', class: "remove_fields" %>
+</div>
+</fieldset>
