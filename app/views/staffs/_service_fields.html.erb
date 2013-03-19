@@ -11,7 +11,8 @@
 
 <div class='row'>
 	<div class="span1"><p>For:</p></div>
-	<div class="span3"><%=f.collection_select :individual_id, Individual.all, :id, :name, include_blank: true, prompt: 'Select Individual'%> and/or </div> 
+	<div class="span3"><%=f.collection_select :individual_id, Individual.all, :id, :name, include_blank: true, prompt: 'Select Individual'%></div> 
+	<p class='span1'>and/or</p> 
 	<div class="span3"><%=f.collection_select :organization_id, Organization.all, :id, :name, include_blank: true, prompt: 'Select Organization'%></div>
 	<div class="span1"><%= f.hidden_field :_destroy %><%= link_to "remove", '#', class: "remove_fields" %></div>
 </div>

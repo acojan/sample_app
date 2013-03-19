@@ -18,6 +18,8 @@
 //= require jquery.ui.slider
 //= require timepicker.js
 //= require counselees.js.coffee
+//= require dataTables/jquery.dataTables
+//= require dataTables/jquery.dataTables.bootstrap
 //= require_tree .
 
 $(function() {

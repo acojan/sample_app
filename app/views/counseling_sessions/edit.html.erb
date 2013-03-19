@@ -1,0 +1,28 @@
+<h1>Editing counseling session</h1>
+
+<div class="row"><div class="span5 offset4">
+<%= form_for @cs do |f| %>
+
+<%= f.label 'Date'%>
+<%= f.text_field :startTime, :id => 'popup_calendar'%>
+<%= f.label :location %><%= f.text_field :location %>
+<%= f.label :counselor_id %>
+<%= f.collection_select :counselor_id, Counselor.all, :id, :name,prompt:true %>
+
+<%= f.label :counselee_id %>
+<%= f.collection_select :counselee_id, Counselee.all, :id, :name,prompt:true %>
+
+  <%= f.hidden_field :counselorName %>
+  <%= f.hidden_field :counseleeName %>
+
+<%= f.submit "Create", class: "btn btn-large btn-primary" %>
+<%end%>
+</div></div>
+
+<script>
+  $(document).ready(function() {
+    $('#popup_calendar').datetimepicker({
+      timeFormat: "hh:mm:ss",
+      dateFormat: "yy-mm-dd"
+    });
+</script>

@@ -1,0 +1,38 @@
+<h3>List of all Counseling Sessions</h3>
+
+<table id='sked' border="3">
+	<thead>
+		<th>When</th>
+		<th> Time </th>
+		<th> Location </th>
+		<th> Counselor </th>
+		<th> Counselee </th>
+		<th> </th>
+	</thead>
+<tbody>
+<%for x in @cs do%>
+	<tr>
+	<td><%= x.startTime.to_date%></td>
+    <td><%= x.startTime.strftime("%H:%M")%></td>
+	<td><%= x.location%></td>
+	<td><%= link_to "#{x.counselor.name}", x.counselor%></td>
+	<td><%= link_to "#{x.counselee.name}", x.counselee%></td>
+	<td>  <%= link_to "edit", edit_counseling_session_path(x)%> <%= link_to "delete", x, method: :delete, data: { confirm: "You sure?" } %></td>
+
+	</tr>
+<%end%>
+</tbody>
+</table>
+<script>
+$(document).ready(function() {
+    $('sked').dataTable({
+      sPaginationType: "full_numbers",
+      //bJQueryUI: true, --> yung pretty jquery thing if you want
+      "sDom": 'T<"clear">lfrtip',
+      "oTableTools": {
+        "sSwfPath": "media/swf/copy_csv_xls_pdf.swf", //for exporting shit
+        ]
+      }
+    })
+  });
+</script>
