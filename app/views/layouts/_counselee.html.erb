@@ -3,6 +3,10 @@
 <%= f.label :birthday %><%= f.date_select :birthday,{start_year: 1940, prompt: true, order:[:month,:day,:year]}, {class:'horDate'} %>
 </div></div>
 
+<div class="row">
+	 <div class="span3">Sex:&nbsp <%= f.radio_button :sex, "m"%>&nbspMale &nbsp&nbsp  <%= f.radio_button :sex, "f"%>&nbsp Female</div> 
+	 </div>
+
 <div class='row'>
 <div class='span2'><%= f.label :occupation %><%= f.text_field :occupation %></div>
 <div class='span3'><%= f.label 'Highest Educational Attainment' %><%= f.text_field :education %></div>
@@ -12,7 +16,7 @@
 <h4>Previous Counseling Experience</h4>
 <div class='row'>
 <div class='span5'>
-<div class='span2'><%= f.label 'Name' %><%= f.text_field :previousCounseling_name %></div>
+<div class='span2'><%= f.label 'Counselor Name' %><%= f.text_field :previousCounseling_name %></div>
 <div class='span2'><%= f.label 'Where' %><%= f.text_field :previousCounseling_where %></div>
 <div class='span3'><%= f.label 'Date' %><%= f.date_select :previousCounseling_when,{prompt: true, order:[:month, :year]}, 
 	{class:'horDate'}%></div>

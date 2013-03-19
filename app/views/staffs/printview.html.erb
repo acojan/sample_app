@@ -1,5 +1,3 @@
-
-
 <h3><%=@staff.type%> #<%=@staff.id%></h3>
 <b>Name: </b><%=@staff.name%><br>
 <b>Address: </b><%=@staff.street%><%=@staff.city%><%=@staff.province%><br>
@@ -17,7 +15,7 @@
 <b>Sex: </b><%=@staff.sex%><br>
 
 <% if @staff.services != [] %>
-	<h4><u>Services Rendered</u></h4>
+	<h4><u>Services</u></h4>
 	<% for x in @staff.services %>
 	<h5><%=x.serviceName%></h5>
 	<%=x.serviceNature %><br>
@@ -25,9 +23,3 @@
 	<%=x.year %><br>
 	<% end %>
 <% end %>
-
-
-<h3 align='right'><%= link_to "Edit", edit_staff_path(@staff)%>&nbsp&nbsp&nbsp
-   <%= link_to "Delete", @staff, method: :delete, data: { confirm: "You sure?" } %>&nbsp&nbsp&nbsp
-   <%= link_to "Print View", printview_staff_url(:id => @staff.id) %>
-</h3>

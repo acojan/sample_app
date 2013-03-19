@@ -43,7 +43,8 @@ class Person < ActiveRecord::Base
   attr_protected
 
   validates(:name, presence: true)
-  
+  #validates(:birthday, presence: true)
+
   def setAge
   	if self.birthday != nil	
   		self.age = Date.today.year - self.birthday.year

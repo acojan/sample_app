@@ -7,6 +7,14 @@
 <div class='span2'><%= f.label :religion %><%= f.text_field :religion %></div>
 </div>
 
+<div class='row'><div class='span4'>
+<%= f.label :birthday %><%= f.date_select :birthday,{start_year: 1940, prompt: true, order:[:month,:day,:year]}, {class:'horDate'} %>
+</div></div>
+
+<div class="row">
+	 <div class="span3">Sex:&nbsp <%= f.radio_button :sex, "m"%>&nbspMale &nbsp&nbsp  <%= f.radio_button :sex, "f"%>&nbsp Female</div> 
+</div>
+
 
 <h4>Academic Background</h4>
 <div class='row'><div class='span10'>	
@@ -20,7 +28,7 @@
 <h4>Avaliability</h4>
 <div class='row'><div class='span10'>	
 <%= f.fields_for :availabilities do |ff|%>
-      <%= render 'availabilities_fields', :f => ff %>
+      <%= render 'availability_fields', :f => ff %>
 <%end%>
 <br><%= link_to_add_fields "Add more", f, :availabilities %></div>
 </div>

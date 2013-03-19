@@ -39,7 +39,7 @@
 #
 
 class Staff < Person
-	has_many :services
+	has_many :services, :dependent => :destroy
 	has_many :individuals, :through => :services
 	has_many :organizations, :through => :services
 

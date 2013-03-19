@@ -10,18 +10,15 @@ class PeopleController < ApplicationController
     redirect_to '/people/'
   end
 
-  def edit
-    @person = Person.find(params[:id])
-    @type = @person.type
-  end
-
   def update
     @person = Person.find(params[:id])
+    @person.setAge
     x=@person.type.downcase.to_sym
     if @person.update_attributes(params[x])
       flash[:success] = "Profile updated"
       redirect_to @person
     else 
+      flash[:error] = "Name field is missing." 
       render 'edit'
     end
   end 

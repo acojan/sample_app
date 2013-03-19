@@ -4,12 +4,17 @@
 
 <div class="row">
 	<div class="span2"><%= f.label 'Service Name' %><%= f.text_field :serviceName %></div>
-	<div class="span2"><%= f.label 'Service Nature' %><%= f.text_field :clusterInvolvement %></div>
-	<div class="span3"><%= f.label :year %><%= f.text_area :year %></div>
-	<div class="span1"><%= f.hidden_field :_destroy %><%= link_to "remove", '#', class: "remove_fields" %></div>
+	<div class="span2"><%= f.label 'Service Nature' %><%= f.text_field :serviceNature %></div>
+	<div class="span1"><%= f.label :year %><%= f.text_field :year %></div>
+	<div class="span1"><%= f.label :hours %><%= f.text_field :hours %></div>
 </div>
 
 <div class='row'>
+	<div class="span1"><p>For:</p></div>
+	<div class="span3"><%=f.collection_select :individual_id, Individual.all, :id, :name, include_blank: true, prompt: 'Select Individual'%> and/or </div> 
+	<div class="span3"><%=f.collection_select :organization_id, Organization.all, :id, :name, include_blank: true, prompt: 'Select Organization'%></div>
+	<div class="span1"><%= f.hidden_field :_destroy %><%= link_to "remove", '#', class: "remove_fields" %></div>
+</div>
 
 
 </div>

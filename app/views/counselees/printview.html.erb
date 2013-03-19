@@ -1,3 +1,5 @@
+
+<!-- Print report shits -->
 <h3><%=@counselee.type%> #<%=@counselee.id%></h3>
 <b>Name: </b><%=@counselee.name%><br>
 <b>Address: </b><%=@counselee.street%><%=@counselee.city%><%=@counselee.province%><br>
@@ -61,8 +63,3 @@
 		<%=x.dosage %><br>
 	<%end%>
 <% end %>
-
-<h3 align='right'><%= link_to "Edit", edit_counselee_path(@counselee)%>&nbsp&nbsp&nbsp
-   <%= link_to "Delete", @counselee, method: :delete, data: { confirm: "You sure?" } %>&nbsp&nbsp&nbsp
-   <%= link_to "Print View", printview_counselee_url(:id => @counselee.id) %>
-</h3>

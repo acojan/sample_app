@@ -1,5 +1,3 @@
-
-
 <h3><%=@student.type%> #<%=@student.id%></h3>
 <b>Name: </b><%=@student.name%><br>
 <b>Address: </b><%=@student.street%><%=@student.city%><%=@student.province%><br>
@@ -31,8 +29,3 @@
 	<%=x.grade %><br> 
 	<% end %>
 <% end %>
-
-<h3 align='right'><%= link_to "Edit", edit_student_path(@student)%>&nbsp&nbsp&nbsp
-   <%= link_to "Delete", @student, method: :delete, data: { confirm: "You sure?" } %>&nbsp&nbsp&nbsp
-   <%= link_to "Print View", printview_student_url(:id => @student.id) %>
-</h3>

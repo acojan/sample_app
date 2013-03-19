@@ -19,5 +19,5 @@ class Service < ActiveRecord::Base
   belongs_to :individual
   belongs_to :organization 
   belongs_to :staff
-  attr_accessible :client_id, :hours, :serviceId, :serviceName, :serviceNature, :staff_id, :year
+  attr_accessible :individual_id, :organization_id, :hours, :serviceId, :serviceName, :serviceNature, :staff_id, :year
 end

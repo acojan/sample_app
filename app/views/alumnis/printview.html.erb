@@ -17,16 +17,3 @@
 <b>Sex: </b><%=@alumni.sex%><br>
 <b>Affiliation with CeFaM: </b><%=@alumni.affiliation%>
 
-<% if @alumni.programs != [] %>
-	<h4><u> Programs Attended </u></h4>
-	<% for x in @alumni.programs %>
-	<p><%= x.programName %>
-	<%= x.startYear %> - <%= x.endYear %></p>
-	<%end%>
-<% end %>
-
-<h3 align='right'><%= link_to "Edit", edit_alumni_path(@alumni)%>&nbsp&nbsp&nbsp
-   <%= link_to "Delete", @alumni, method: :delete, data: { confirm: "You sure?" } %>&nbsp&nbsp&nbsp
-   <%= link_to "Print View", printview_alumni_url(:id => @alumni.id) %>
-   
-</h3>

@@ -40,6 +40,5 @@
 
 class Individual < Person
 	has_many :services
-	has_many :staff, :through => :services
-  # attr_accessible :title, :body
+	has_many :staffs, :through => :services
 end

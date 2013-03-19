@@ -39,4 +39,6 @@
 #
 
 class Organization < Person
+	has_many :services
+	has_many :staffs, :through => :services
 end

@@ -6,6 +6,21 @@ def new
     render 'people/new'
 	end 
 
+def show
+    @staff = Staff.find(params[:id])
+end
+
+def printshow
+    @staff = Staff.find(params[:id])
+    render 'printview', layout: false 
+end 
+
+def edit
+    @person = Person.find(params[:id])
+    @type = @person.type
+    render 'people/edit'
+end
+
 	def create
 	@staff = Staff.new(params[:staff])
   @staff.setAge

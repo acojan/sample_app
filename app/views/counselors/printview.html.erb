@@ -1,5 +1,4 @@
 
-
 <!-- Print report shits -->
 <h3><%=@counselor.type%> #<%=@counselor.id%></h3>
 <b>Name: </b><%=@counselor.name%><br>
@@ -60,7 +59,7 @@
 	<b><%=x.day%></b> 
 	<%=x.startTime.to_time %>
 	<%=x.endTime.to_time %>
-	at <%=x.location %><br>
+	at <%=x.location %>
 	<% end %>
 <% end %>
 
@@ -79,8 +78,3 @@
 	<%=x.positionHeld %><br>
 	<% end %>
 <% end %>
-
-<h3 align='right'><%= link_to "Edit", edit_counselor_path(@counselor)%>&nbsp&nbsp&nbsp
-   <%= link_to "Delete", @counselor, method: :delete, data: { confirm: "You sure?" } %>&nbsp&nbsp&nbsp
-   <%= link_to "Print View", printview_counselor_url(:id => @counselor.id) %>
-</h3>

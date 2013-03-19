@@ -13,7 +13,25 @@
 	 	 </div></div>
 
 
-	 <h3>List of Services Availed(FIX FOR 'show')</h3>
+	 <h4>List of Services Availed</h4>
+	 <% if @person.services == nil %>
+	 <p> No services have been availed</p>
+	 <%else%>
+	 <table>
+	 	 <tr>
+			<th>Service Name &nbsp&nbsp</th>
+			<th>Service Nature &nbsp&nbsp</th>
+			<th>Year availed &nbsp&nbsp</th>
+		 </tr>
+		 <% for x in @person.services %>
+		 <tr>
+			<td><%=x.serviceName%></td>
+			<td><%=x.serviceNature%></td>
+			<td><%=x.year%></td>
+		 </tr>
+		 <%end%>
+	</table>
+	 <%end%>
 
 </div>
 

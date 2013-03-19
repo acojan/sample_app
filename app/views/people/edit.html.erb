@@ -1,4 +1,4 @@
-<h3> Editing <%=@type%> </h3>
+<h3> Editing <%=@type%> #<%=@person.id%> </h3>
 
  <%= form_for(@person) do |f| %>
 <div class="well"><div class="row"><div class="span9">
@@ -30,7 +30,7 @@
        <%= render "layouts/alumni", :f => f        if @type=='Alumni' %>
        <%= render "layouts/org", :f => f           if @type=='Organization' %>
        <%= render "layouts/student", :f => f       if @type=='Student' %>
-       <%= render "layouts/student", :f => f       if @type=='Staff' %>
+       <%= render "layouts/staff", :f => f       if @type=='Staff' %>
        <%= render "layouts/counselee", :f => f     if @type=='Counselee' %>
        <%= render "layouts/counselor", :f => f     if @type=='Counselor' %>
 </div>

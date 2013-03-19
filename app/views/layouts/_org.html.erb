@@ -10,6 +10,26 @@
 	<div class="span4"><%= f.label :officials_designation %><%= f.text_field :officials_designation %></div>
 	</div>
 
-	 <h3>List of Services Availed</h3>
+	  <h4>List of Services Availed</h4>
+	 <% if @person.services.empty? %>
+	 <p> No services have been availed</p>
+	 <%else%>
+	 <table>
+	 	 <tr>
+			<th>Service Name &nbsp&nbsp</th>
+			<th>Service Nature &nbsp&nbsp</th>
+			<th>Year availed &nbsp&nbsp</th>
+			<th>Staff Member</th>
+		 </tr>
+		 <% for x in @person.services %>
+		 <tr>
+			<td><%=x.serviceName%></td>
+			<td><%=x.serviceNature%></td>
+			<td><%=x.year%></td>
+			<td><%=link_to "#{x.staff.name}", x.staff%></td>
+		 </tr>
+		 <%end%>
+	</table>
+	 <%end%>
 </div>
 </div>

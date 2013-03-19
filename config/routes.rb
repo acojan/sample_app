@@ -21,8 +21,15 @@ SampleApp::Application.routes.draw do
   match "/about", to: 'static_pages#about'
   match "/contact", to: 'static_pages#contact'
   
-  match "/people/new/:type", to: 'people#new'
-  match "/counselee/more/:id", to: 'counselees#more'
+  match '/alumni/:id/printview', to: 'alumnis#printshow', :as => :printview_alumni
+  match '/counselee/:id/printview', to: 'counselees#printshow', :as => :printview_counselee
+  match '/counselor/:id/printview', to: 'counselors#printshow', :as => :printview_counselor
+  match '/individual/:id/printview', to: 'individuals#printshow', :as => :printview_individual
+  match '/organization/:id/printview', to: 'organizations#printshow', :as => :printview_organization
+  match '/staff/:id/printview', to: 'staffs#printshow', :as => :printview_staff
+  match '/student/:id/printview', to: 'students#printshow', :as => :printview_student
+  # match "/people/new/:type", to: 'people#new'
+  # match "/counselee/more/:id", to: 'counselees#more'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -11,6 +11,17 @@ class OrganizationsController < PeopleController
   	@org = Organization.find(params[:id])
 	end 
 
+  def printshow
+    @org = Organization.find(params[:id])
+    render 'printview', layout: false 
+  end
+  
+  def edit
+    @person = Person.find(params[:id])
+    @type = @person.type
+    render 'people/edit'
+  end
+  
 	def create
 	  @org = Organization.new(params[:organization])
 

@@ -10,6 +10,17 @@ class AlumnisController < PeopleController
   	@alumni = Alumni.find(params[:id])
 	end 
 
+  def printshow
+    @alumni = Alumni.find(params[:id])
+    render 'printview', layout: false 
+  end
+
+  def edit
+    @person = Person.find(params[:id])
+    @type = @person.type
+    render 'people/edit'
+  end
+  
 	def create
 	@alumni = Alumni.new(params[:alumni])
     @alumni.setAge
